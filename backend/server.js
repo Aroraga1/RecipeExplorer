@@ -34,15 +34,6 @@ app.get(routes.health, (req, res) => {
 app.use(routes.recipes, recipeRoutes);
 app.use(routes.ai, aiRoutes);
 
-console.log("Registered Routes:");
-console.log(`  Health: ${routes.health}`);
-console.log(`  Recipes: ${routes.recipes}`);
-console.log(`  AI: ${routes.ai}`);
-console.log("  AI Routes:");
-console.log(`    POST ${routes.ai}/suggest`);
-console.log(`    POST ${routes.ai}/simplify`);
-console.log(`    POST ${routes.ai}/cooking-tips`);
-
 if (aiRoutes && aiRoutes.stack) {
   console.log(`  AI Router has ${aiRoutes.stack.length} registered routes`);
   aiRoutes.stack.forEach((layer, index) => {
@@ -93,11 +84,6 @@ const startServer = async () => {
 
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
-      console.log("Available AI endpoints:");
-      console.log(`  POST http://localhost:${PORT}${routes.ai}/suggest`);
-      console.log(`  POST http://localhost:${PORT}${routes.ai}/simplify`);
-      console.log(`  POST http://localhost:${PORT}${routes.ai}/search`);
-      console.log(`  POST http://localhost:${PORT}${routes.ai}/cooking-tips`);
     });
   } catch (error) {
     console.error("Failed to start server:", error.message);
