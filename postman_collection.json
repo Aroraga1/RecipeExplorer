@@ -1,0 +1,371 @@
+{
+  "info": {
+    "name": "Smart Recipe Explorer API",
+    "description": "API collection for Smart Recipe Explorer - MERN Stack Application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Recipes",
+      "item": [
+        {
+          "name": "Get All Recipes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"]
+            }
+          }
+        },
+        {
+          "name": "Get Recipe by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "recipe_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Recipe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Classic Margherita Pizza\",\n  \"cuisine\": \"Italian\",\n  \"isVegetarian\": true,\n  \"prepTimeMinutes\": 45,\n  \"ingredients\": [\n    \"pizza dough\",\n    \"tomato sauce\",\n    \"mozzarella cheese\",\n    \"fresh basil\",\n    \"olive oil\"\n  ],\n  \"difficulty\": \"Medium\",\n  \"instructions\": [\n    \"Preheat oven to 475°F (245°C)\",\n    \"Roll out pizza dough on a floured surface\",\n    \"Spread tomato sauce evenly over the dough\",\n    \"Add mozzarella cheese slices\",\n    \"Bake for 12-15 minutes until crust is golden\",\n    \"Top with fresh basil leaves and drizzle with olive oil\"\n  ],\n  \"tags\": [\"pizza\", \"italian\", \"vegetarian\", \"dinner\"]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/recipes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"]
+            }
+          }
+        },
+        {
+          "name": "Update Recipe",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Recipe Name\",\n  \"prepTimeMinutes\": 30\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/recipes/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "recipe_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Recipe",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "recipe_id_here"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search Recipes - By Cuisine",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes?cuisine=Italian",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"],
+              "query": [
+                {
+                  "key": "cuisine",
+                  "value": "Italian"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Recipes - Vegetarian",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes?isVegetarian=true",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"],
+              "query": [
+                {
+                  "key": "isVegetarian",
+                  "value": "true"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Recipes - Max Prep Time",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes?maxPrepTime=30",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"],
+              "query": [
+                {
+                  "key": "maxPrepTime",
+                  "value": "30"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Recipes - By Difficulty",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes?difficulty=Easy",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"],
+              "query": [
+                {
+                  "key": "difficulty",
+                  "value": "Easy"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search Recipes - By Ingredient",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes?ingredient=tomato",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"],
+              "query": [
+                {
+                  "key": "ingredient",
+                  "value": "tomato"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Search Recipes - General Search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes?search=pizza",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "pizza"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Filter Recipes - Combined Filters",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/recipes?cuisine=Italian&isVegetarian=true&maxPrepTime=60&difficulty=Medium",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "recipes"],
+              "query": [
+                {
+                  "key": "cuisine",
+                  "value": "Italian"
+                },
+                {
+                  "key": "isVegetarian",
+                  "value": "true"
+                },
+                {
+                  "key": "maxPrepTime",
+                  "value": "60"
+                },
+                {
+                  "key": "difficulty",
+                  "value": "Medium"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "AI Endpoints",
+      "item": [
+        {
+          "name": "Suggest Recipe from Ingredients",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ingredients\": [\"tomato\", \"onion\", \"garlic\", \"pasta\"]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/ai/suggest",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "ai", "suggest"]
+            }
+          }
+        },
+        {
+          "name": "Simplify Instructions - By Recipe ID",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipeId\": \"recipe_id_here\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/ai/simplify",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "ai", "simplify"]
+            }
+          }
+        },
+        {
+          "name": "Simplify Instructions - Direct",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"instructions\": [\n    \"First, prepare all ingredients by washing and chopping vegetables\",\n    \"Then, heat a large pan over medium-high heat and add oil\",\n    \"Sauté the vegetables until they are tender and fragrant\",\n    \"Finally, add seasonings and serve hot\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/ai/simplify",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "ai", "simplify"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    }
+  ]
+}
+
+
+
+
