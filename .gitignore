@@ -10,6 +10,8 @@ node_modules/
 # Production
 /build
 /dist
+frontend/build/
+backend/build/
 
 # Environment variables
 .env

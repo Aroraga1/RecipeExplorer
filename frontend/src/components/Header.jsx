@@ -14,7 +14,7 @@ const Header = () => {
             <Link to="/">Home</Link>
           </Button>
           <Button variant="ghost" asChild>
-            <Link to="/showcase">Showcase</Link>
+            <Link to="/find">Find</Link>
           </Button>
           <Button asChild>
             <Link to="/recipe/new">Add Recipe</Link>

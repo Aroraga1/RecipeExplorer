@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { recipeAPI } from "../services/api";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "../components/ui/select";
 import { Loader2, Grid3x3, LayoutGrid, List, RefreshCw } from "lucide-react";
 import { cn } from "../lib/utils";
 
-const RecipeShowcase = () => {
+const BrowsePage = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -132,7 +132,7 @@ const RecipeShowcase = () => {
   return (
     <div className="container mx-auto px-4 py-6 max-w-7xl">
       <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Recipe Showcase</h1>
+        <h1 className="text-3xl font-bold mb-2">Recipes</h1>
         <p className="text-muted-foreground">
           Discover {filteredAndSortedRecipes.length} recipes from around the
           world
@@ -258,7 +258,7 @@ const RecipeShowcase = () => {
           )}
         >
           {filteredAndSortedRecipes.map((recipe) => (
-            <RecipeShowcaseCard
+            <RecipeBrowseCard
               key={recipe._id}
               recipe={recipe}
               viewMode={viewMode}
@@ -271,7 +271,7 @@ const RecipeShowcase = () => {
   );
 };
 
-const RecipeShowcaseCard = ({ recipe, viewMode, getDifficultyVariant }) => {
+const RecipeBrowseCard = ({ recipe, viewMode, getDifficultyVariant }) => {
   if (viewMode === "list") {
     return (
       <Link to={`/recipe/${recipe._id}`}>
@@ -355,4 +355,5 @@ const RecipeShowcaseCard = ({ recipe, viewMode, getDifficultyVariant }) => {
   );
 };
 
-export default RecipeShowcase;
+export default BrowsePage;
+

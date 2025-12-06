@@ -1,10 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import RecipeList from './components/RecipeList';
-import RecipeDetail from './components/RecipeDetail';
-import RecipeShowcase from './components/RecipeShowcase';
-import RecipeForm from './components/RecipeForm';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import FindPage from "./pages/FindPage";
+import RecipeDetailPage from "./pages/RecipeDetailPage";
+import BrowsePage from "./pages/BrowsePage";
+import CreateRecipePage from "./pages/CreateRecipePage";
 
 function App() {
   return (
@@ -13,10 +13,10 @@ function App() {
         <Header />
         <main className="container mx-auto px-4 py-6">
           <Routes>
-            <Route path="/" element={<RecipeList />} />
-            <Route path="/showcase" element={<RecipeShowcase />} />
-            <Route path="/recipe/new" element={<RecipeForm />} />
-            <Route path="/recipe/:id" element={<RecipeDetail />} />
+            <Route path="/" element={<BrowsePage />} />
+            <Route path="/find" element={<FindPage />} />
+            <Route path="/recipe/new" element={<CreateRecipePage />} />
+            <Route path="/recipe/:id" element={<RecipeDetailPage />} />
           </Routes>
         </main>
       </div>

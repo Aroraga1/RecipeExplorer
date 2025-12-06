@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { recipeAPI } from '../services/api';
-import SearchFilters from './SearchFilters';
-import AISearchAssistant from './AISearchAssistant';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
-import { Badge } from './ui/badge';
+import SearchFilters from '../components/SearchFilters';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '../components/ui/card';
+import { Badge } from '../components/ui/badge';
 import { Loader2 } from 'lucide-react';
 
-const RecipeList = () => {
+const FindPage = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -117,9 +116,9 @@ const RecipeList = () => {
   return (
     <div className="container mx-auto px-4 py-6 max-w-7xl">
       <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">Recipes</h1>
+        <h1 className="text-3xl font-bold mb-2">Find Recipes</h1>
         <p className="text-muted-foreground">
-          Discover recipes from around the world
+          Search and filter recipes to find exactly what you're looking for
         </p>
       </div>
 
@@ -128,11 +127,6 @@ const RecipeList = () => {
         onFilterChange={handleFilterChange}
         onClearFilters={handleClearFilters}
         availableTags={availableTags}
-      />
-      
-      <AISearchAssistant 
-        onSearchResults={setFilters}
-        currentFilters={filters}
       />
 
       {error && (
@@ -204,5 +198,5 @@ const RecipeCard = ({ recipe }) => {
   );
 };
 
-export default RecipeList;
+export default FindPage;
 

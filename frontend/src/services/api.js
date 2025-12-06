@@ -36,10 +36,21 @@ api.interceptors.response.use(
       error.message =
         "Unable to connect to the server. Please try again later.";
     } else if (error.response) {
+      const status = error.response.status;
+      const responseData = error.response.data;
+
+      if (process.env.NODE_ENV === "development") {
+        console.error(`API Error [${status}]:`, {
+          url: error.config?.url,
+          method: error.config?.method,
+          data: responseData,
+        });
+      }
+
       error.message =
-        error.response.data?.error ||
-        error.response.data?.message ||
-        "An error occurred while processing your request. Please try again.";
+        responseData?.error ||
+        responseData?.message ||
+        `Request failed with status ${status}`;
     } else if (error.request) {
       error.message =
         "Unable to reach the server. Please check your connection and try again.";
@@ -91,11 +102,6 @@ export const aiAPI = {
   simplifyInstructions: async (instructions, recipeId = null) => {
     const payload = recipeId ? { recipeId } : { instructions };
     const response = await api.post("/ai/simplify", payload);
-    return response.data;
-  },
-
-  search: async (query) => {
-    const response = await api.post("/ai/search", { query });
     return response.data;
   },
 

@@ -80,55 +80,6 @@
           }
         },
         {
-          "name": "Update Recipe",
-          "request": {
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"Updated Recipe Name\",\n  \"prepTimeMinutes\": 30\n}"
-            },
-            "url": {
-              "raw": "http://localhost:5000/api/recipes/:id",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "recipes", ":id"],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "recipe_id_here"
-                }
-              ]
-            }
-          }
-        },
-        {
-          "name": "Delete Recipe",
-          "request": {
-            "method": "DELETE",
-            "header": [],
-            "url": {
-              "raw": "http://localhost:5000/api/recipes/:id",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "5000",
-              "path": ["api", "recipes", ":id"],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "recipe_id_here"
-                }
-              ]
-            }
-          }
-        },
-        {
           "name": "Search Recipes - By Cuisine",
           "request": {
             "method": "GET",
@@ -351,6 +302,52 @@
               "host": ["localhost"],
               "port": "5000",
               "path": ["api", "ai", "simplify"]
+            }
+          }
+        },
+        {
+          "name": "AI Search",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"quick vegetarian pasta\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/ai/search",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "ai", "search"]
+            }
+          }
+        },
+        {
+          "name": "Get Cooking Tips",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"recipeId\": \"recipe_id_here\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/ai/cooking-tips",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5000",
+              "path": ["api", "ai", "cooking-tips"]
             }
           }
         }

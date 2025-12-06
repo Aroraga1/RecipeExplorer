@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { recipeAPI, aiAPI } from "../services/api";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { Loader2, ArrowLeft, Bot, ChefHat } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+import { Loader2, ArrowLeft, ChefHat } from "lucide-react";
 
-const RecipeDetail = () => {
+const RecipeDetailPage = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -84,7 +84,6 @@ const RecipeDetail = () => {
       setAiLoading(false);
     }
   };
-
 
   if (loading && !recipe) {
     return (
@@ -298,5 +297,5 @@ const RecipeDetail = () => {
   );
 };
 
-export default RecipeDetail;
+export default RecipeDetailPage;
 

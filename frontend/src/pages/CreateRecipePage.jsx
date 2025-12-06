@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { recipeAPI } from '../services/api';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Textarea } from './ui/textarea';
-import { Button } from './ui/button';
-import { Badge } from './ui/badge';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import { Input } from '../components/ui/input';
+import { Label } from '../components/ui/label';
+import { Textarea } from '../components/ui/textarea';
+import { Button } from '../components/ui/button';
+import { Badge } from '../components/ui/badge';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select';
+} from '../components/ui/select';
 import { Loader2, ArrowLeft, Plus, X, CheckCircle2, AlertCircle } from 'lucide-react';
 
-const RecipeForm = () => {
+const CreateRecipePage = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -399,5 +399,5 @@ const RecipeForm = () => {
   );
 };
 
-export default RecipeForm;
+export default CreateRecipePage;
 
