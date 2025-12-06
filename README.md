@@ -77,7 +77,7 @@ Create a new file called `.env` in the `backend` folder and put this in it:
 ```env
 PORT=5000
 NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/recipe-explorer
+MONGODB_URI=mongodb://localhost:27017/DB_nanme
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
@@ -119,7 +119,7 @@ Again, this might take a minute.
 3. Create a `.env` file in the frontend folder. Create a new file called `.env` and put this in it:
 
 ```env
-REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_API_URL=BACKEND_ROUTE
 ```
 
 This tells the frontend where to find the backend.
@@ -129,33 +129,7 @@ This tells the frontend where to find the backend.
 ```bash
 npm start
 ```
-
-Your browser should automatically open to `http://localhost:3000` and you'll see the Recipe Explorer! If it doesn't open automatically, just go to that address in your browser.
-
-## Setting Up the AI (Google Gemini)
-
-The AI features need an API key from Google. Don't worry, it's free to get started!
-
-1. Go to [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Sign in with your Google account (or create one if you don't have it)
-3. Click the "Create API Key" button
-4. Copy the key it gives you (it looks like a long string of letters and numbers)
-5. Paste it into your `backend/.env` file where it says `GEMINI_API_KEY=your_gemini_api_key_here`
-
-So your backend `.env` file should look like:
-
-```env
-PORT=5000
-NODE_ENV=development
-MONGODB_URI=mongodb://localhost:27017/recipe-explorer
-GEMINI_API_KEY=AIzaSyD-sQOXOG6WLhFB2Ks6T2YzWBm8eMCFZlM
-```
-
-(That's just an example - use YOUR actual key!)
-
-6. Restart your backend server (stop it with Ctrl+C and run `npm run dev` again) for the changes to take effect.
-
-Now the AI features should work! Try clicking "Get Cooking Tips" on any recipe to see it in action.
+just go to that address mantioned in terminal (probably 3000) in your browser.
 
 ## My Thought Process (Why I Made These Choices)
 
@@ -232,14 +206,4 @@ I'm always adding new features! Some ideas I'm thinking about:
 - Meal planning features
 - Cooking timer built into the app
 
-## Final Thoughts
-
-This project was a great learning experience. I got to combine databases, APIs, AI, and frontend development all in one place. The hardest part was making everything work together smoothly, but that's also what made it fun.
-
-If you're learning to code and want to build something similar, my advice is: start simple. Get the basic recipe list working first, then add search, then filters, then AI features. Build one thing at a time, and don't worry if it's not perfect at first.
-
-Thanks for checking out my project! I hope you find it useful. Happy cooking! 🍳
-
----
-
-**Note**: This project uses free tiers of services. For heavy use, you might need to upgrade to paid plans. Always be careful with API keys and never share them publicly!
+**Note**: This project uses free tiers of services.
